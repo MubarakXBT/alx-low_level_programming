@@ -1,9 +1,9 @@
 #include <stdio.h>
 /*
  * main - Entry point
- *  Always Return 0 
- *  */
-int main(void)
+ * Always Return 0 
+ */
+int main(void) /* main - entry point*/
 {
 	int a;
 	long int b;
