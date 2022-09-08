@@ -1,5 +1,8 @@
 #include <stdio.h>
-/* Always Return 0 */
+/*
+ * main - Entry point
+ *  Always Return 0 
+ *  */
 int main(void)
 {
 	int a;
