@@ -12,6 +12,6 @@ int main(void)
 	int m;
 
 	for (m = 0; m < 10; m++)
-		printf("%d\n", n);
+		printf("%d\m", m);
 	return (0);
 }
