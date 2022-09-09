@@ -2,13 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 /*
- * more headers goes there 
  * main - Entry point
  *
- * Return 0
- * */
-
-/* betty style doc for function main goes there */
+ * Return: always 0 (success)
+ */
 int main(void)
 {
 	int n;
@@ -18,11 +15,11 @@ int main(void)
 	/* your code goes there */
 
 	if (n > 5)
-		printf("last digit of n is %d and is greater than 5\n",n);
+		printf("Last digit of %d is %d and is greater than 5\n",n, n % 10);
 	else if (n == 0)
-		printf("last digit of n is %d and is 0\n",n);
+		printf("Last digit of %d is %d and is 0\n",n, n % 10);
 	else
-		printf("last digit of n is %d and is less than 0\n",n);
+		printf("Last digit of %d is %d and is less than 0\n",n, n % 10);
 
 	return (0);
 }
