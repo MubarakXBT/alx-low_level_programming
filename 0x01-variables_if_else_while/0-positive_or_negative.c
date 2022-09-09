@@ -1,8 +1,10 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <time.h>
-/*
+/**
  * main - Entry point
+ *
+ *Positive or Negative
  *
  * Return: Always 0 (Success)
  */
