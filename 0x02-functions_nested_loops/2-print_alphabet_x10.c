@@ -1,9 +1,9 @@
-#include <stdio.h>
+#include "main.h"
 /**
  * print_alphabet_x10 - Entry
  * Return: Always (Success)
  */
-void print_alphabet_x10(void);
+void print_alphabet_x10(void)
 {
 	char ch;
 	int n;
@@ -13,10 +13,9 @@ void print_alphabet_x10(void);
 	{
 		for (ch = 'a'; ch <= 'z'; ch++)
 		{
-			putchar(ch);
+			_putchar(ch);
 		}
-		putchar('\n');
-		n++
+		_putchar('\n');
+		n++;
 	}
-	return;
 }
