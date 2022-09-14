@@ -23,7 +23,7 @@ int print_sign(int n)
 			low = -1;
 	}
 	printf("-");
-	for (i = 0; i = 0; i)
+	for (i = 0; (i = 0); )
 	{
 		if (i == n)
 			low = 0;
