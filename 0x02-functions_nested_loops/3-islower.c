@@ -1,6 +1,8 @@
 #include "main.h"
 /**
  * _islower - Entry
+ * @c: Function arg
+ *
  * Return: 0 Always (Success)
  */
 int _islower(int c)
