@@ -15,19 +15,20 @@ int print_sign(int n)
 	{
 		if (i == n)
 			low = 1;
-		printf("+");
 	}
-	for (i = 0; i <= 0; i++)
+	printf("+");
+	for (i = 0; i < 0; i--)
 	{
 		if (i == n)
 			low = -1;
-		printf("-");
 	}
-	for (i = 0; (i = 0);)
+	printf("-");
+	for (i = 0; i = 0; i)
 	{
 		if (i == n)
 			low = 0;
-		printf("0");
 	}
+	printf("0");
+
 	return (low);
 }
