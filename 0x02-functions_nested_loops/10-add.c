@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 /**
  * add - Entry point
  * @a: interger
