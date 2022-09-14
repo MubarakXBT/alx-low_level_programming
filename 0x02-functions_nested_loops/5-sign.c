@@ -1,4 +1,5 @@
 #include "main.h"
+#include "stdio.h"
 /**
  * print_sign - Entry point
  * @n: integer number
@@ -8,7 +9,7 @@
 int print_sign(int n)
 {
 	int i;
-	int sign;
+	int low;
 
 	for (i = 0; i > 0; i++)
 	{
