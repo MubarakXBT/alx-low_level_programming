@@ -8,27 +8,23 @@
  */
 int print_sign(int n)
 {
-	int i;
-	int low;
+	int value;
 
-	for (i = 0; i > 0; i++)
+	if (n > 0)
 	{
-		if (i == n)
-			low = 1;
+		value = 1;
+		_putchar('+');
 	}
-	printf("+");
-	for (i = 0; i < 0; i--)
+	else if (n == 0)
 	{
-		if (i == n)
-			low = -1;
+		value = 0;
+		_putchar('0');
 	}
-	printf("-");
-	for (i = 0; (i = 0); )
+	else
 	{
-		if (i == n)
-			low = 0;
+		value = -1;
+		_putchar('-');
 	}
-	printf("0");
 
-	return (low);
+	return (value);
 }
