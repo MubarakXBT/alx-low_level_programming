@@ -14,7 +14,7 @@ int _isupper(int c)
 	{
 		if (i == c)
 			alpha = 1;
-		else
+		if (i != c)
 			alpha = 0;
 	}
 	return (alpha);
