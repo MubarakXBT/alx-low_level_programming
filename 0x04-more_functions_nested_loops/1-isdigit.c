@@ -7,16 +7,18 @@
  */
 int _isdigit(int c)
 {
-	int i;
+	char i;
 	int num;
+	num = 0;
 
-	for (i = 0 ; i <= 9; i++)
+	for (i = '0'; i <= '9'; i++)
 	{
 		if (i == c)
+		{
 			num = 1;
-		else
-			num = 0;
+		}
 	}
+	
 	return (num);
 }
 

@@ -14,7 +14,11 @@ int _isupper(int c)
 	{
 		if (i == c)
 			alpha = 1;
-		if (i != c)
+	}
+	for (i = 'a'; i <= 'z'; i++)
+	{
+
+		if (i == c)
 			alpha = 0;
 	}
 	return (alpha);
