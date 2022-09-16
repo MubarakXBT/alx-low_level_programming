@@ -9,6 +9,7 @@ int _isdigit(int c)
 {
 	char i;
 	int num;
+
 	num = 0;
 
 	for (i = '0'; i <= '9'; i++)
@@ -18,7 +19,6 @@ int _isdigit(int c)
 			num = 1;
 		}
 	}
-	
 	return (num);
 }
 
