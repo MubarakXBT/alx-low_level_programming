@@ -5,7 +5,7 @@
  *
  * Return: 1 if capital, 0 if otherwise
  */
-int _isupper(int c);
+int _isupper(int c)
 {
 	char i;
 	int alpha;

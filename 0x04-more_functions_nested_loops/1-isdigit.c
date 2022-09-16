@@ -5,7 +5,7 @@
  *
  * Return: 1 if digit, 0 if otherwise
  */
-int _isdigit(int c);
+int _isdigit(int c)
 {
 	int i;
 	int num;
@@ -13,9 +13,9 @@ int _isdigit(int c);
 	for (i = 0 ; i <= 9; i++)
 	{
 		if (i == c)
-			alpha = 1;
+			num = 1;
 		else
-			alpha = 0;
+			num = 0;
 	}
 	return (num);
 }
