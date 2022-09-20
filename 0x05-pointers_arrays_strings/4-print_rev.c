@@ -7,16 +7,16 @@
  */
 void print_rev(char *s)
 {
-	char *l = s;
-	
-	while (*l)
-		l++;
-	l -= 1;
+	char *len = s;
 
-	while (l)
+	while (*len)
+		len++;
+	len -= 1;
+
+	while (len)
 	{
 		_putchar(*s);
-		l--;
+		len--;
 	}
 	_putchar('\n');
 }
