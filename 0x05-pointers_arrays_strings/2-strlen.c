@@ -1,6 +1,4 @@
 #include "main.h"
-#include <string.h>
-#include <stdio.h>
 
 /**
  * _strlen - Entry
@@ -10,7 +8,7 @@
  */
 int _strlen(char *s)
 {
-	int len;
+	int len = 0;
 
 	while (s[len] != '\0')
 		len++;
