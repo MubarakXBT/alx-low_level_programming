@@ -10,7 +10,10 @@
  */
 int _strlen(char *s)
 {
-	s[]="geeks";
-	printf("%d", strlen(s));
-	return (0);
+	int len;
+
+	while (s[len] != '\0')
+		len++;
+
+	return (len);
 }
