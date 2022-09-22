@@ -11,7 +11,7 @@ int _strcmp(char *s1, char *s2)
 {
 	int i;
 	int j;
-	int res = -15;
+	int res = 0;
 	i = 0;
 	j = 0;
 
@@ -19,16 +19,16 @@ int _strcmp(char *s1, char *s2)
 	{
 		if (s1[i] == '\0' && s2[j] == '\0')
 		{
-			res = 0;
 			break;
 		}
 		else if (s1[i] != '\0' && s2[j] == '\0')
 		{
-			res = 15;
+			res = (*s1 - *s2);
 			break;
 		}
 		else if (s1[i] == '\0' && s2[j] != '\0')
 		{
+			res = (*s1 - *s2);
 			break;
 		}
 		i++;
