@@ -1,7 +1,12 @@
 #include "main.h"
 #include <string.h>
 /**
+ * _strncat - Entry
+ * @dest: arg 1
+ * @src: arg 2
+ * @n:
  *
+ * Return: dest
  */
 char *_strncat(char *dest, char *src, int n)
 {
@@ -20,5 +25,4 @@ char *_strncat(char *dest, char *src, int n)
 	}
 	dest[j] = '\0';
 	return (dest);
-	
 }
