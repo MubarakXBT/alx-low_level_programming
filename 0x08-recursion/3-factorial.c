@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * fatorial - Function
+ * factorial - Function
  * @n: parameter
  *
  * Return: -1 oe 1 or res
