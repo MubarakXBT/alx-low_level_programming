@@ -1,7 +1,7 @@
 #include "main.h"
 #include <stdlib.h>
 /**
- * creat_array - Entry function
+ * create_array - Entry function
  * @size: size of array
  * @c:name of array
  *
