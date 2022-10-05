@@ -1,6 +1,11 @@
 #include <stdio.h>
 #include "main.h"
 /**
+ * main - Entry
+ * @argc: arg
+ * @argv: arg
+ *
+ * Return:et0
  */
 int main(int argc, char **argv)
 {
@@ -10,9 +15,8 @@ int main(int argc, char **argv)
 	while (argc > 0)
 	{
 		printf("%s\n", argv[i]);
-		argc --;
+		argc--;
 		i++;
 	}
-	
 	return (0);
 }
