@@ -4,6 +4,7 @@
 /**
  * print_dog - Funtion to print output of Struct
  * @d: Struct intialization
+ *
  * Return: Nothing
  */
 void print_dog(struct dog *d)
