@@ -14,11 +14,11 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *cpname, *cpown;
 	int lenm = 0, leno = 0, i;
 
-	while(name[lenm])
+	while (name[lenm])
 		lenm++;
-	while(owner[leno])
+	while (owner[leno])
 		leno++;
-	
+
 	user = malloc(sizeof(dog_t));
 	if (user == NULL)
 		return (NULL);
@@ -28,14 +28,14 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	for (i = 0; name[i]; i++)
 		cpname[i] = name[i];
-	cpname[i] ='\0';
+	cpname[i] = '\0';
 
 	cpown = malloc(leno + 1);
 	if (cpown == NULL)
 		return (NULL);
 	for (i = 0; owner[i]; i++)
 		cpown[i] = owner[i];
-	cpown[i] ='\0';
+	cpown[i] = '\0';
 
 	user->name = cpname;
 	user->age = age;
