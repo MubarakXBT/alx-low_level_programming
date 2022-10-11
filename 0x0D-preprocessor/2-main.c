@@ -4,8 +4,8 @@
  * description: To print name of source file i.e BASE_FILE
  *
  * Return: 0 (SUCCESS)
-int main()
+int main(void)
 {
 	printf("%s\n", __BASE_FILE__);
-	return 0;
+	return (0);
 }
