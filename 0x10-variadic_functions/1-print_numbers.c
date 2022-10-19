@@ -1,5 +1,6 @@
 #include  <stdio.h>
 #include <stdarg.h>
+#include <string.h>
 #include "variadic_functions.h"
 /**
  * print_numbers - Function to print given digits
@@ -19,7 +20,7 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 
 	for (sep = separator; i < n; i++)
 	{
-		if (sep != NULL)
+		if (sep != NULL && *sep != '\0')
 		{
 			val = va_arg(ptr, int);
 			printf("%d", val);
@@ -28,6 +29,11 @@ void print_numbers(const char *separator, const unsigned int n, ...)
 				putchar(*sep);
 				putchar(' ');
 			}
+		}
+		else
+		{
+			val = va_arg(ptr, int);
+			printf("%d", val);
 		}
 	}
 	putchar('\n');
