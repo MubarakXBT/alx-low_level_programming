@@ -11,20 +11,20 @@
  */
 void print_strings(const char *separator, const unsigned int n, ...)
 {
-        unsigned int j = 1, i = 0;
-        char *val;
-        const char *sep;
-        va_list ptr;
+	unsigned int j = 1, i = 0;
+	char *val;
+	const char *sep;
+	va_list ptr;
 
-        va_start(ptr, n);
+	va_start(ptr, n);
 
-        for (sep = separator; i < n; i++)
-        {
-                if (sep != NULL && *sep != '\0')
-                {
-                        val = va_arg(ptr, char *);
+	for (sep = separator; i < n; i++)
+	{
+		if (sep != NULL && *sep != '\0')
+		{
+			val = va_arg(ptr, char *);
 			if (val == NULL)
-				printf("nil");
+				printf("(nil)");
 			else
 			{
 				printf("%s", val);
@@ -34,7 +34,21 @@ void print_strings(const char *separator, const unsigned int n, ...)
 					putchar(' ');
 				}
 			}
-                }
-        }
-        putchar('\n');
+		}
+		else
+		{
+			val = va_arg(ptr, char *);
+			if (val == NULL)
+				printf("(nil)");
+			else
+			{
+				printf("%s", val);
+				if (j++ < n)
+				{
+					putchar(' ');
+				}
+			}
+		}
+	}
+	putchar('\n');
 }
