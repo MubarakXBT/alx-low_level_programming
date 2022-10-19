@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-    print_numbers("- ", 8, 0, 98, -1024, 402, 33, 903, 472, 0);
+    print_numbers("; ", 5, 30, 938, -123024, 43402, 0);
     return (0);
 }
