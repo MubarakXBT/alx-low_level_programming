@@ -12,7 +12,7 @@ int cclose(int);
  */
 int main(int ac, char *av[])
 {
-	int from_fd, to_fd, error = 0, mem_read = 0, _EOF = 1;
+	int from_fd = -1, to_fd = -1, error = 0, mem_read = 0, _EOF = 1;
 	char buf[1024];
 
 	if (ac != 3)
