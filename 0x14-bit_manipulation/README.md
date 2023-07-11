@@ -1,1 +1,1 @@
-This repository contains alx projects on C- bit_Manipulation
+This directory contain projects on Bit manipulation
