@@ -1,87 +1,73 @@
-#include "main.h"
-#include <stdlib.h>
-#include <unistd.h>
-#include <fcntl.h>
 #include <stdio.h>
-#include <elf.h>
+#include <stdlib.h>
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdint.h>
+#include "main.h"
 
-int cclose(int);
 /**
- * main - main program to copy and past content
- * @ac: argument counter
- * @av: argument variable
- * Return: exit codes to STDERR
+ * print_error - prints error
+ * @message: the error message
+ *
+ * Return: void
  */
-int main(int ac, char *av[])
+
+void print_error(const char *message)
 {
-	int elf_header = -1, elf_filename = -1, error = 0, mem_read = 0, _EOF = 1;
-	char buf[1024];
-
-	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
-
-	from_fd = open(av[1], O_RDONLY);
-	if (from_fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
-
-	to_fd = open(av[2], O_WRONLY | O_TRUNC | O_CREAT, 0664);
-	if (to_fd < 0)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-		exit(99);
-	}
-
-	while (_EOF)
-	{
-		_EOF = read(from_fd, buf, 1024);
-		if (_EOF < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-			cclose(to_fd);
-			cclose(from_fd);
-			exit(98);
-		}
-		else if (_EOF == 0)
-			break;
-		mem_read += _EOF;
-		error = write(to_fd, buf, _EOF);
-		if (error < 0)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-			cclose(from_fd);
-			cclose(to_fd);
-			exit(98);
-		}
-
-	}
-	error = cclose(to_fd);
-	if (error == 0)
-	{
-		cclose(from_fd);
-		exit(100);
-	}
-	error = cclose(from_fd);
-		exit(100);
-	return (0);
+	fprintf(stderr, "Error: %s\n", message);
+	exit(98);
 }
 
 /**
- * cclose - format error closing of descriptor
- * @arg: File descriptor
- * Return: Error
+ * main- function to print elf
+ * @argc: counts numbers of argument
+ * @argv: an array of variable
+ *
+ * Return: 0 on success
  */
-int cclose(int arg)
-{
-	int error;
 
-	error = close(arg);
-	if (error < 0)
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", arg);
-	return (error);
+int main(int argc, char *argv[])
+{
+	const char *filename = argv[1];
+	Elf64 header;
+	int i, fd;
+
+	if (argc != 2)
+	{
+		print_error("Usage: elf_header elf_filename");
+	}
+	fd = open(filename, O_RDONLY);
+
+	if (fd == -1)
+	{
+		print_error("Failed to open file");
+	}
+
+	if (read(fd, &header, sizeof(Elf64)) != sizeof(Elf64))
+	{
+		print_error("Failed to read ELF header");
+	}
+	if (header.e_ident[0] != 0x7F || header.e_ident[1] != 'E')
+	{
+		if (header.e_ident[2] != 'L' || header.e_ident[3] != 'F')
+		{
+			print_error("Not an ELF file");
+		}
+	}
+	printf("Magic: ");
+	
+	for (i = 0; i < 16; i++)
+	{
+		printf("%02x ", header.e_ident[i]);
+	}
+	printf("\n");
+	printf("Class: %d-bit\n", header.e_ident[4] == 1 ? 32 : 64);
+	printf("Data: %s\n", header.e_ident[5] == 1 ? "Little Endian" : "Big Endian");
+	printf("Version: %d\n", header.e_ident[6]);
+	printf("OS/ABI: %d\n", header.e_ident[7]);
+	printf("ABI Version: %d\n", header.e_ident[8]);
+	printf("Type: %u\n", header.e_type);
+	printf("Entry point address: 0x%lx\n", header.e_entry);
+	close(fd);
+	return (0);
 }
