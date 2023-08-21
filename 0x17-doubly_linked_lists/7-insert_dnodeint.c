@@ -1,6 +1,12 @@
 #include "lists.h"
 #include <stdio.h>
 /**
+ * insert_dnodeint_at_index - insert node at given position
+ * @h: pointer to a linked-list
+ * @idx: position to insert at
+ * @n: value to be inserted
+ *
+ * Return: A modified linked list
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
@@ -22,10 +28,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	else if (idx == len - 1)
 		return(add_dnodeint_end(h, m));
 	else if (idx >= len)
-	{
-		printf("here\n");
 		return (NULL);
-	}
 
 	len = 0;
 	Newnode->n = n;
