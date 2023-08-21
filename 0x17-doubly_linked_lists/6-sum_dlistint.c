@@ -3,6 +3,8 @@
 /**
  * sum_dlistint - sums all data in nodes of a list
  * @head: the linked-list
+ *
+ * Return: the sum
  */
 int sum_dlistint(dlistint_t *head)
 {
