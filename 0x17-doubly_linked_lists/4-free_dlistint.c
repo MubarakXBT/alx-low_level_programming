@@ -2,6 +2,10 @@
 #include "lists.h"
 #include <stddef.h>
 /**
+ * free_dlistint - function to free nodes allocated memory
+ * @head: Doubly linked-list
+ *
+ * Return: Void
  */
 void free_dlistint(dlistint_t *head)
 {
