@@ -1,0 +1,1 @@
+This Folder Contain Functions on Hash-Map implementations
