@@ -10,7 +10,7 @@
 int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	hash_node_t *keypair;
-	int index;
+	int i, index;
 
 	keypair = (hash_node_t *) malloc(sizeof(hash_node_t *));
 	if (keypair == NULL)
@@ -20,16 +20,25 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		return (0);
 
 	keypair->key = strdup(key);
-	keypair->value = strdup(value);
+	if (keypair->key == NULL)
+	{
+		free(keypair);
+		return (0);
+	}
 	keypair->next = NULL;
 
-	index = (hash_djb2((const unsigned char *)key)) % ht->size;
-	if (ht->array[index] != NULL)
+	index = hash_djb2((const unsigned char *)key) % ht->size;
+	for (i = index; ht->array[i]; i++)
 	{
-		ht->array[index]->next = keypair;
-		return (1);
+		if (strcmp(ht->array[i]->key, key) == 0)
+		{
+			free(ht->array[i]->value);
+			ht->array[i]->value = strdup(value);
+			return (1);
+		}
 	}
-
+	keypair->value = strdup(value);
+	keypair->next = ht->array[index];
 	ht->array[index] = keypair;
 
 	return (1);
