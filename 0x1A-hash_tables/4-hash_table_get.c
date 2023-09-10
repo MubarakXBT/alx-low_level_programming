@@ -8,15 +8,14 @@
 */
 char *hash_table_get(const hash_table_t *ht, const char *key)
 {
-	int index;
+	unsigned long int index;
 
 	if (!key || !ht)
 		return (NULL);
 
+	index = hash_djb2((const unsigned char *)key) % ht->size;
 	if (index >= ht->size)
 		return (NULL);
-
-	index = hash_djb2((const unsigned char *)key) % ht->size;
 	if (ht->array[index] != NULL)
 	{
 		if (strcmp(key, ht->array[index]->key) == 0)
