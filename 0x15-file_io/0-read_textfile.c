@@ -1,43 +1,37 @@
 #include "main.h"
-#include <fcntl.h>
-#include <unistd.h>
-#include <stdio.h>
+#include <stdlib.h>
 /**
- * read_textfile - Program the read I/O file
- * @filename: name of file to be read
- * @letters: Size of to be printed
- * Return: return size
+ * read_textfile - a function that reads a
+ * text file and prints it to the POSIX standard output
+ * @filename: of the file
+ * @letters: the number of letters it should read and print
+ * Return: the actual number of letters it could read and print
  */
+
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int fdo, fdr, fdw;
-	char *mem;
+	register int _open, _read, _write;
+	register char *buffer = malloc(sizeof(char)  * letters);
 
-	if (filename == NULL)
-		return (0);
-	mem = malloc(sizeof(char) * letters);
-	if (mem == NULL)
-		return (0);
-
-	fdo = open(filename, O_RDONLY);
-	if (fdo < 0)
+	if (!(buffer))
 	{
-		free(mem);
+		free(buffer);
 		return (0);
 	}
-
-	fdr = read(fdo, mem, letters);
-	if (fdr < 0)
+	if (!(filename))
 	{
-		free(mem);
 		return (0);
 	}
-	fdw = write(STDOUT_FILENO, mem, fdr);
-	free(mem);
-	close(fdo);
+	_open = open(filename, O_RDONLY);
+	_read = read(_open, buffer, letters);
+	_write = write(STDOUT_FILENO, buffer, _read);
 
-	if (fdw < 0)
+	if (_open == -1 || _read == -1 || _write == -1 || !(_write == _read))
+	{
+		free(buffer);
 		return (0);
-	return ((ssize_t)fdw);
+	}
+	free(buffer);
+	close(_open);
+	return (_write);
 }
-
